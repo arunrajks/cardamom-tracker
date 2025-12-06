@@ -1,5 +1,16 @@
 [
   {
+    "date": "06-Dec-2025",
+    "market": "SPECIALITY INDIAN FOOD PARKS EXPORTS PRIVATE LIMITED",
+    "grade": "Small Cardamom",
+    "price": 2414.94,
+    "avgPrice": 2414.94,
+    "maxPrice": 2749,
+    "totalQty": "71690.2",
+    "soldQty": "71274.2",
+    "lotSize": "250"
+  },
+  {
     "date": "05-Dec-2025",
     "market": "IDUKKI MAHILA CARDAMOM PRODUCER COMPANY LIMITED",
     "grade": "Small Cardamom",
