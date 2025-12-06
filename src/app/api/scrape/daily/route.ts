@@ -12,8 +12,15 @@ export async function GET() {
             console.error("Failed to update cache:", cacheError);
             // Continue to return data even if cache update fails
         }
-        return NextResponse.json(result.data);
+        const response = NextResponse.json(result.data);
+        // Add CORS headers for Android app
+        response.headers.set('Access-Control-Allow-Origin', '*');
+        response.headers.set('Access-Control-Allow-Methods', 'GET, OPTIONS');
+        response.headers.set('Access-Control-Allow-Headers', 'Content-Type');
+        return response;
     } else {
-        return NextResponse.json({ error: result.error }, { status: 500 });
+        const response = NextResponse.json({ error: result.error }, { status: 500 });
+        response.headers.set('Access-Control-Allow-Origin', '*');
+        return response;
     }
 }

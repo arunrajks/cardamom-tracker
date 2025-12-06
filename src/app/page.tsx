@@ -23,18 +23,26 @@ export default function Dashboard() {
     useEffect(() => {
         async function fetchData() {
             try {
+                console.log('[DEBUG] API_BASE:', API_BASE);
+                console.log('[DEBUG] Fetching daily data from:', `${API_BASE}/api/scrape/daily`);
+
                 // Fetch Daily Data (Recent)
                 const dailyRes = await fetch(`${API_BASE}/api/scrape/daily`);
+                console.log('[DEBUG] Daily response status:', dailyRes.status);
                 const dailyData = await dailyRes.json();
+                console.log('[DEBUG] Daily data length:', Array.isArray(dailyData) ? dailyData.length : 'not an array');
 
                 // Fetch Historical Data
+                console.log('[DEBUG] Fetching historical data from:', `${API_BASE}/api/scrape/historical`);
                 const historyRes = await fetch(`${API_BASE}/api/scrape/historical`);
+                console.log('[DEBUG] Historical response status:', historyRes.status);
                 const histData = await historyRes.json();
+                console.log('[DEBUG] Historical data length:', Array.isArray(histData) ? histData.length : 'not an array');
 
                 if (Array.isArray(dailyData)) setDailyPrices(dailyData);
                 if (Array.isArray(histData)) setHistoricalPrices(histData);
             } catch (e) {
-                console.error("Failed to fetch data", e);
+                console.error("[ERROR] Failed to fetch data:", e);
             } finally {
                 setLoading(false);
             }
