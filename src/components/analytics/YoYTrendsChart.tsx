@@ -100,6 +100,7 @@ export const YoYTrendsChart: React.FC<YoYTrendsChartProps> = ({ data, className 
                                     key={year}
                                     type="monotone"
                                     dataKey={year}
+                                    name={year.toString()}
                                     stroke={colors[idx] || '#fff'}
                                     strokeWidth={strokes[idx] || 1}
                                     dot={{ r: 3 }}
