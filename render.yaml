@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: cardamom-tracker
+    env: node
+    region: singapore # Optional: closer to India/Kerala for speed
+    plan: starter # Persistent Disk usually needs a paid plan (Starter+), Free tier doesn't support disks.
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    disk:
+      name: cardamom-data
+      mountPath: /opt/render/project/src/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: 20.10.0 # Matching modern Next.js requirements
+
+version: "1"
